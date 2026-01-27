@@ -6,7 +6,7 @@
 
     //Modules layout
 
-	"modules-left": ["custom/launcher","cpu","memory","disk","custom/htb"],
+	"modules-left": ["custom/launcher","cpu","memory","disk","custom/vpn"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["hyprland/language","network","pulseaudio", "battery","clock","custom/power"],
 	
@@ -132,10 +132,11 @@
         "interval": 15,
         "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
     },
-    "custom/htb": {
-      "exec": "~/.config/waybar/scripts/hackthebox.sh",
-      "interval": 5,
-      "format": "{}"
+    "custom/vpn": {
+      "exec": "~/.config/waybar/scripts/vpn_status.sh",
+      "interval": 3,
+      "format": "HTB: {}",
+	  "on-click": "nm-connection-editor" // Optional open network settings
     },
     "hyprland/language": {
       "format": "  {}",

@@ -1,3 +1,4 @@
+DISABLE_AUTO_UPDATE="true"
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="afowler"
 
@@ -31,14 +32,16 @@ function parse_git_branch {
 }
 
 # Custom Aliases
-alias cat='bat'
-alias catnp='bat --paging=never'
-alias catnpl='bat --paging=never --style plain'
+alias cat='batcat'
+alias catnp='batcat --paging=never'
+alias catnpl='batcat --paging=never --style plain'
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
+alias keepass='/home/v3ctorsh4de/.local/bin/keepassxc.AppImage &'
+alias jr='cc -Wall -Wextra -Werror'
 
 # Extract nmap information
 function extractPorts(){
@@ -68,3 +71,7 @@ function cleartarget(){
 }
 
 PROMPT='%F{cyan}󰣇 %f %F{magenta}%n%f $(dir_icon) %F{red}%~%f%${vcs_info_msg_0_} %F{yellow}$(parse_git_branch)%f %(?.%B%F{green}.%F{red})%f%b '
+
+alias francinette=/home/v3ctorsh4de/francinette/tester.sh
+
+alias paco=/home/v3ctorsh4de/francinette/tester.sh
