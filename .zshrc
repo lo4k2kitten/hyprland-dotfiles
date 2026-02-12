@@ -12,6 +12,35 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$HOME/.local/kitty.app/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin/bat-binary/:$HOME/.local/bin/"
+export TERMINAL=kitty
+
+alias jr="cc -Wall -Wextra -Werror"
+alias catn="cat"
+alias cat="bat"
+# Añade esto al final de tu archivo ~/.bashrc
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gp='git push'
+alias gpl='git pull'
+alias gpom='git push origin main'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glo='git log --oneline'
+alias gss='git status -s'
+alias grh='git reset HEAD'
+alias grhh='git reset --hard HEAD'
+
 # Pronmpt configuration
 
 function dir_icon {
@@ -31,40 +60,10 @@ function parse_git_branch {
 }
 
 # Custom Aliases
-alias cat='bat'
-alias catnp='bat --paging=never'
-alias catnpl='bat --paging=never --style plain'
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
-
-# Extract nmap information
-function extractPorts(){
-	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-	ip_address="$(cat $1 | grep -oP '^Host: .* \(\)' | head -n 1 | awk '{print $2}')"
-	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
-	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
-	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
-	echo $ports | tr -d '\n' | xclip -sel clip
-	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-	cat extractPorts.tmp; rm extractPorts.tmp
-}
-
-# MKT function
-function mkt(){
-	mkdir {nmap,content,exploits}
-}
-
-function settarget(){
-    ip_address=$1
-    machine_name=$2
-    echo "$ip_address $machine_name" > /home/c0l1nr00t/.config/bin/target
-}
-
-function cleartarget(){
-	echo '' > /home/c0l1nr00t/.config/bin/target
-}
-
 PROMPT='%F{cyan}󰣇 %f %F{magenta}%n%f $(dir_icon) %F{red}%~%f%${vcs_info_msg_0_} %F{yellow}$(parse_git_branch)%f %(?.%B%F{green}.%F{red})%f%b '
+USER=jreyes-s
+export USER
+
+alias francinette=/home/jreyes-s/francinette/tester.sh
+
+alias paco=/home/jreyes-s/francinette/tester.sh
